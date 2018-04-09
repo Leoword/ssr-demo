@@ -1,0 +1,41 @@
+{
+  "name": "ssr-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run build && node index",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "webpack --config build/webpack.client.js",
+    "build:server": "webpack --config build/webpack.server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leoword/ssr-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leoword/ssr-demo/issues"
+  },
+  "homepage": "https://github.com/Leoword/ssr-demo#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vue-server-renderer": "^2.5.16",
+    "vue-template-compiler": "^2.5.16",
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0",
+    "webpack": "^3.10.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.4",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "vue-loader": "^15.0.0-rc.1",
+    "webpack-cli": "^2.0.14",
+    "webpack-merge": "^4.1.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
