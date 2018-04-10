@@ -6,7 +6,8 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
-    devtool: '#cheap-module-source-map',
+    mode: 'development',
+    devtool: 'inline-source-map',
     output: {
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/dist/',
@@ -16,6 +17,11 @@ module.exports = {
         alias: {
             'dist': path.resolve(__dirname, '../dist'),
         }
+    },
+    devServer: {
+        contentBase: path.resolve(__dirname, '../dist'),
+        hot: true,
+        port: 8200
     },
     module: {
         noParse: /es6-promise\.js$/,
@@ -38,6 +44,7 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin(),
-        new FriendlyErrorsPlugin()
+        new FriendlyErrorsPlugin(),
+        new webpack.HotModuleReplacementPlugin()
         ]
 };

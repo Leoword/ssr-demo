@@ -1,7 +1,14 @@
 <template>
   <div id="app">
-      <h1>来自后端SSR渲染</h1>
-	  <router-view/>
+    <h1>来自后端SSR渲染</h1>
+	<ol>
+		<li v-for="(todo, index) in todos" v-bind:key="index">
+			{{ todo.text }}
+		</li>
+	</ol>
+	<div><span>{{count}}</span></div>
+    <div><button @click="count++">+1</button></div>
+	<router-view></router-view>
   </div>
 </template>
 
@@ -9,17 +16,15 @@
 //为什么这么写？带有逻辑配置的组件
 export default {
 	name: 'app',
-	methods: {
-		pluralize: n => n + (n === 1 ? ' reply' : ' replies')
-	},
-	asyncDate({store, route}) { //自定义静态函数，在组件实例化之前调用，无法访问this
-		return store.dispatch('increment');
-	},
-	computed: {
-		//从store中获取item
-		item() {
-			return this.$store.state.count;
-		}
-	}
+	data() {
+		return {
+			todos: [
+				  { text: 'Learn JavaScript' },
+				  { text: 'Learn Vue' },
+				  { text: 'Build something awesome' }
+			],
+			count: 1
+		};
+    }
 }
 </script>

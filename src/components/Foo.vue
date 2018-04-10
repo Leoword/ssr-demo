@@ -18,8 +18,9 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
       <router-link to="/test">Test</router-link>
     </ul>
-	<p>{{item}}</p>
+	<p>{{mount}}</p>
 	<button @click="mount++">click</button>
+	<router-link to="/Bar">Home</router-link>
   </div>
 </template>
 
@@ -36,17 +37,6 @@ export default {
 		return {
 			msg: 'Welcome to Your Vue.js App',
 			mount: 1
-		}
-	},
-	methods: {
-		increment() {
-			return this.$store.commit('increment');
-		}
-	},
-	computed: {
-		//从store中获取item
-		item() {
-			return this.$store.state.count;
 		}
 	}
 }

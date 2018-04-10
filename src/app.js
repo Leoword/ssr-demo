@@ -32,21 +32,21 @@ export function createRouter() {
     return new Router({
         mode: 'history', //没有hash
         routes: [
-            // {
-            //     path: '/',
-            //     name: 'Foo',
-            //     component: Foo
-            // }, //代码分割，惰性加载，减少在初始渲染中下载的资源体积，异步组件和webpack2支持的动态导入作为代码分割点结合
+            {
+                path: '/',
+                name: 'Foo',
+                component: Foo
+            }, //代码分割，惰性加载，减少在初始渲染中下载的资源体积，异步组件和webpack2支持的动态导入作为代码分割点结合
             {
                 path: '/Bar',
                 name: 'Bar',
                 component: Bar
             },
-            {
-                path: '/Baz',
-                name: 'Baz',
-                component: Baz
-            }
+            // {
+            //     path: '/Baz',
+            //     name: 'Baz',
+            //     component: Baz
+            // }
         ]
     });
 }

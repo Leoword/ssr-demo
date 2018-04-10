@@ -1,22 +1,38 @@
 <template>
-	<div><h3>{{item}}</h3></div>
+	<div>
+    	Just a Baz page.
+    <div>
+      <router-link to="/">Home</router-link>
+    </div>
+    <div><span>{{count}}</span></div>
+    <div><button @click="count++">+1</button></div>
+	<input v-model="message">
+	<p>Message is: {{ message }}</p>
+  <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+  <label for="jack">Jack</label>
+  <input type="checkbox" id="john" value="John" v-model="checkedNames">
+  <label for="john">John</label>
+  <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+  <label for="mike">Mike</label>
+  <br>
+  <span>Checked names: {{ checkedNames }}</span>
+  </div>
 </template>
 
 <script>
 //为什么这么写？带有逻辑配置的组件
 export default {
 	name: 'baz',
-	methods: {
-		pluralize: n => n + (n === 1 ? ' reply' : ' replies')
-	},
-	asyncDate({store, route}) { //自定义静态函数，在组件实例化之前调用，无法访问this
-		return store.dispatch('increment');
-	},
-	computed: {
-		//从store中获取item
-		item() {
-			return this.$store.state.count;
+	data () {
+		return {
+			count: 3,
+			checkedNames: [],
+			message: ''
 		}
+	},
+	serverCacheKey: props => props.item.id,
+	render(h) {
+		return h('div', this.item.id);
 	}
 }
 </script>
