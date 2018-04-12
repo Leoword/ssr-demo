@@ -7,9 +7,10 @@ const VueSSRServicePlugin = require('vue-server-renderer/server-plugin');
 const path = require('path');
 
 module.exports = merge(baseConfig, {
-    entry: path.resolve(__dirname, '../src/entry-service.js'),
+    entry: {
+        app: path.resolve(__dirname, '../src/entry-service.js')
+    },
     target: 'node',
-    devtool: 'source-map',
     output: {
         libraryTarget: 'commonjs2'
     },

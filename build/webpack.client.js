@@ -7,7 +7,9 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const path = require('path');
 
 module.exports = merge(baseConfig, {
-    entry: path.resolve(__dirname, '../src/entry-client.js'),
+    entry: {
+        app: path.resolve(__dirname, '../src/entry-client.js')
+    },
     resolve: {
         alias: {
             'vue': 'vue/dist/vue.runtime.min.js'

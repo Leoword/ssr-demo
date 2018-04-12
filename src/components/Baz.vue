@@ -30,7 +30,6 @@ export default {
 			message: ''
 		}
 	},
-	serverCacheKey: props => props.item.id,
 	render(h) {
 		return h('div', this.item.id);
 	}

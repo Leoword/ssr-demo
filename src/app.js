@@ -24,7 +24,7 @@ export function createApp() {
         store,
         render: h => h(App)//渲染模板
     });
-
+    
     return { app, router, store };
 }
 

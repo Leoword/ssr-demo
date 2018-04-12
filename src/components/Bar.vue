@@ -9,6 +9,7 @@
 		<input v-model="message" placeholder="edit me">
 		<p>Message is: {{ message }}</p>
 		<baz></baz>
+		<p>111111</p>
 	</div>
 </template>
 <script>
